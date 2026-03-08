@@ -1,0 +1,13 @@
+# Render Blueprint - https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: deerflow
+    runtime: docker
+    dockerfilePath: deploy/Dockerfile
+    plan: starter  # $7/mo, or use "free" for free tier (has sleep after inactivity)
+    healthCheckPath: /health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: TAVILY_API_KEY
+        sync: false
